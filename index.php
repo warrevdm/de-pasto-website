@@ -9,10 +9,13 @@ $nav = [
   'contact' => 'Contact'
 ];
 $menu = [
-  'Koffie & warm' => ['Espresso', 'Koffie', 'Cappuccino', 'Latte macchiato', 'Chai latte', 'Verse munt- of gemberthee', 'Warme chocomelk'],
-  'Fris & alcoholvrij' => ['Water plat/bruis', 'Cola & Cola Zero', 'Fuse Tea', 'Oxfam fruitsap', 'Homemade ice tea', 'Alcoholvrije bieren'],
-  'Eten' => ['Croque classic / veggie', 'Pasta pomodoro', 'Pasta bolognaise', 'Soep van de week', 'Quiche met salade', 'Borrelplank'],
-  'Avond & sharing' => ['Nacho’s met dips', 'Pizza slices', 'Croque uit het vuistje', 'Chips & nootjes', 'Dessert van de week']
+  'Frisdranken' => ['Plat / Bruis', 'Cola / Cola Zero', 'Fanta', 'Fuze Tea Sparkling', 'Fuze Tea Green', 'Fever-Tree', 'Red Bull', 'Almdudler', 'Bionade', 'Fairtrade sappen', 'Cécémel', 'Fristi'],
+  'Warme dranken' => ['Espresso', 'Dubbele Espresso', 'Koffie', 'Grote Koffie', 'Koffie verkeerd', 'Latte Macchiato', 'Cappuccino', 'Warme Choco', 'Thee', 'Verse Munt Thee', 'Verse Gember Thee', 'Chai Latte', 'Matcha Latte'],
+  'Bieren van ’t vat' => ['Tout Bien', 'Tripel d’Anvers', 'Bolleke De Koninck', 'Liefmans On The Rocks', 'Wisseltap'],
+  'Bieren op fles' => ['Duvel', 'Duvel 666', 'La Chouffe', 'Vedett Extra Blond', 'Westmalle Dubbel', 'Westmalle Tripel'],
+  'Alcoholvrije bieren' => ['Vedett Extra Blond 0.0%', 'Liefmans On The Rocks 0.0%', 'La Chouffe 0.0%'],
+  'Wijn & bubbels' => ['Buitengewoon Wit', 'Buitengewoon Rosé', 'Buitengewoon Rood', 'Cava', 'Flessen wijn & bubbels'],
+  'Aperitief' => ['Aperol Spritz', 'Mimosa', 'Limoncello Spritz', 'Porto', 'Martini Bianco', 'Martini Rosso']
 ];
 $hours = [
   ['Maandag', '09:00–00:00'],
