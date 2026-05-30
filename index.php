@@ -104,8 +104,8 @@ $hours = [
 
   <section class="section menu" id="menu">
     <div class="section-title reveal">
-      <p class="eyebrow">Menukaart</p>
-      <h2>Klein genoeg om goed te doen, groot genoeg om te delen.</h2>
+      <p class="eyebrow">Drankenkaart</p>
+<h2>Van koffie in de tuin tot een frisse pint aan de bar.</h2>
     </div>
     <div class="grid four">
       <?php foreach ($menu as $category => $items): ?>
