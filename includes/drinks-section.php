@@ -114,12 +114,9 @@ $drinks = [
       <article class="drink-card reveal">
         <h3><?= htmlspecialchars($category, ENT_QUOTES, 'UTF-8') ?></h3>
         <ul class="drink-list">
-          <?php foreach ($items as [$name, $price]): ?>
+          <?php foreach ($items as $item): ?>
             <li>
-              <span><?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></span>
-              <?php if ($price !== ''): ?>
-                <strong>€ <?= htmlspecialchars($price, ENT_QUOTES, 'UTF-8') ?></strong>
-              <?php endif; ?>
+              <span><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></span>
             </li>
           <?php endforeach; ?>
         </ul>
@@ -129,7 +126,7 @@ $drinks = [
 
   <div class="drinks-notes reveal">
     <p><strong>Mixers:</strong> mix sterke drank met een frisdrank naar keuze.</p>
-    <p>Prijzen in euro incl. btw en service · 1 rekening per tafel · Gelieve allergieën vooraf te melden.</p>
+    <p>1 rekening per tafel · Gelieve allergieën vooraf te melden.</p>
     <p>18+ voor sterke dranken · 16+ voor alcoholische dranken.</p>
   </div>
 </section>
