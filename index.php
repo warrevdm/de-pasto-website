@@ -2,20 +2,10 @@
 $pageTitle = 'De Pasto | De gezelligste huiskamer van Kapellen';
 $nav = [
   'concept' => 'Concept',
-  // 'menu' => 'Menu',
-  // 'partners' => 'Partners',
+  'dranken' => 'Dranken',
   'uren' => 'Openingsuren',
   'social' => 'Sociaal',
   'contact' => 'Contact'
-];
-$menu = [
-  'Frisdranken' => ['Plat / Bruis', 'Cola / Cola Zero', 'Fanta', 'Fuze Tea Sparkling', 'Fuze Tea Green', 'Fever-Tree', 'Red Bull', 'Almdudler', 'Bionade', 'Fairtrade sappen', 'Cécémel', 'Fristi'],
-  'Warme dranken' => ['Espresso', 'Dubbele Espresso', 'Koffie', 'Grote Koffie', 'Koffie verkeerd', 'Latte Macchiato', 'Cappuccino', 'Warme Choco', 'Thee', 'Verse Munt Thee', 'Verse Gember Thee', 'Chai Latte', 'Matcha Latte'],
-  'Bieren van ’t vat' => ['Tout Bien', 'Tripel d’Anvers', 'Bolleke De Koninck', 'Liefmans On The Rocks', 'Wisseltap'],
-  'Bieren op fles' => ['Duvel', 'Duvel 666', 'La Chouffe', 'Vedett Extra Blond', 'Westmalle Dubbel', 'Westmalle Tripel'],
-  'Alcoholvrije bieren' => ['Vedett Extra Blond 0.0%', 'Liefmans On The Rocks 0.0%', 'La Chouffe 0.0%'],
-  'Wijn & bubbels' => ['Buitengewoon Wit', 'Buitengewoon Rosé', 'Buitengewoon Rood', 'Cava', 'Flessen wijn & bubbels'],
-  'Aperitief' => ['Aperol Spritz', 'Mimosa', 'Limoncello Spritz', 'Porto', 'Martini Bianco', 'Martini Rosso']
 ];
 $hours = [
   ['Maandag', '09:00–00:00'],
@@ -130,6 +120,7 @@ $hours = [
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/menu-upgrades.css">
+  <link rel="stylesheet" href="assets/css/drinks-menu.css">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -245,7 +236,7 @@ $hours = [
 <main>
   <section class="hero">
     <div class="hero-media" aria-hidden="true">
-       <img src="assets/img/gallery/pasto-13.jpeg" alt="">
+      <img src="assets/img/gallery/pasto-13.jpeg" alt="">
       <img src="assets/img/gallery/pasto-08.jpeg" alt="">
       <img src="assets/img/gallery/pasto-18.jpeg" alt="">
       <img src="assets/img/gallery/pasto-01.jpeg" alt="">
@@ -256,7 +247,7 @@ $hours = [
       <h1>De Pasto</h1>
       <p>Een warme ontmoetingsplek in de groene tuin van het centrum. Voor koffie, lunch, pasta, borrel en een fijne avond met vrienden.</p>
       <div class="hero-actions">
-        <!-- <a class="btn primary" href="#menu">Ontdek de kaart</a> -->
+        <a class="btn primary" href="#dranken">Bekijk de drankenkaart</a>
         <a class="btn secondary" href="#sfeer">Bekijk de sfeer</a>
       </div>
     </div>
@@ -294,71 +285,21 @@ $hours = [
       <figure class="photo-item wide reveal"><img src="assets/img/gallery/pasto-05.jpeg" alt="Tuinpad richting De Pasto"></figure>
       <figure class="photo-item reveal"><img src="assets/img/gallery/pasto-06.jpeg" alt="Groene tegelwand detail"></figure>
       <figure class="photo-item reveal"><img src="assets/img/gallery/pasto-07.jpeg" alt="De Oude Pastorij tussen het groen"></figure>
-
     </div>
   </section>
 
-  <!-- <section class="section menu" id="menu">
-    <div class="section-title reveal">
-      <p class="eyebrow">Drankenkaart</p>
-<h2>Van koffie in de tuin tot een frisse pint aan de bar.</h2>
-    </div>
-    <div class="grid four">
-      <?php foreach ($menu as $category => $items): ?>
-        <article class="menu-card reveal">
-          <h3><?= htmlspecialchars($category) ?></h3>
-          <ul>
-            <?php foreach ($items as $item): ?>
-              <li><?= htmlspecialchars($item) ?></li>
-            <?php endforeach; ?>
-          </ul>
-        </article>
-      <?php endforeach; ?>
-    </div>
-  </section> -->
-
-
-  <!-- <section class="section partners" id="partners">
-    <div class="section-title reveal">
-      <p class="eyebrow">Onze partners</p>
-      <h2>Sterke samenwerkingen, herkenbare kwaliteit.</h2>
-      <p>Bij De Pasto kiezen we bewust voor partners die passen bij onze warme, lokale en toegankelijke sfeer. Dankzij Tout Bien, Duvel Moortgat, Seef en Coca-Cola bouwen we aan een drankenkaart met karakter: van frisse klassiekers tot Belgische bieren met verhaal.</p>
-    </div>
-    <div class="partner-grid">
-      <article class="partner-card reveal">
-        <div class="partner-logo"><img src="assets/img/partners/white_BG_No.svg" alt=""></div>
-        <h3>Tout Bien</h3>
-        <p>Een jonge Belgische bierpartner met een frisse uitstraling en veel goesting.</p>
-      </article>
-      <article class="partner-card reveal">
-        <div class="partner-logo">Duvel<br>Moortgat</div>
-        <h3>Duvel Moortgat</h3>
-        <p>Een sterke brouwerijpartner voor kwaliteit, service en een rijk bieraanbod.</p>
-      </article>
-      <article class="partner-card reveal">
-        <div class="partner-logo">Seef</div>
-        <h3>Seef</h3>
-        <p>Een Antwerps bier met geschiedenis, karakter en een duidelijke lokale link.</p>
-      </article>
-      <article class="partner-card reveal">
-        <div class="partner-logo">Coca‑Cola</div>
-        <h3>Coca-Cola</h3>
-        <p>Herkenbare frisdranken, glazen en ondersteuning voor een verzorgde barwerking.</p>
-      </article>
-    </div>
-    <p class="partner-note reveal">Logo’s kunnen later eenvoudig vervangen worden door officiële bestanden in <code>assets/img/partners/</code>.</p>
-  </section> -->
+  <?php include __DIR__ . '/includes/drinks-section.php'; ?>
 
   <section class="section hours" id="uren">
     <div class="hours-box reveal">
       <div>
         <p class="eyebrow">Openingsuren</p>
         <h2>Kom langs, strijk neer en voel je thuis.</h2>
-        <p>Keuken tot 20:00. Late snacks tot 30 minuten voor sluiting. </br>
-        Ook geopend op feestdagen, behalve 25/12 en 01/01. </br>
-        Uitzonderlijke sluitingen worden aangekondigd op onze sociale media.</br>
+        <p>Keuken tot 20:00. Late snacks tot 30 minuten voor sluiting. <br>
+        Ook geopend op feestdagen, behalve 25/12 en 01/01. <br>
+        Uitzonderlijke sluitingen worden aangekondigd op onze sociale media.<br>
         Buitengewoon VZW is open tijdens de week van 09:00 tot 16:00.
-      </p>
+        </p>
       </div>
       <div class="hours-list">
         <?php foreach ($hours as [$day, $time]): ?>
@@ -386,7 +327,7 @@ $hours = [
       <div>
         <p class="eyebrow">Contact</p>
         <h2>Vraag, reservatie of samenwerking?</h2>
-        </div>
+      </div>
       <?php include __DIR__ . '/includes/contact-form.php'; ?>
     </div>
   </section>
@@ -394,7 +335,7 @@ $hours = [
 
 <footer class="site-footer">
   <strong>De Pasto</strong>
-  <span>Team Pasto · Oude Pastorij · Dorpstraat 45 · 2950 Kapellen · BE1036.699.079 </span>
+  <span>Team Pasto · Oude Pastorij · Dorpstraat 45 · 2950 Kapellen · BE1036.699.079</span>
   <a href="#top">Terug naar boven</a>
 </footer>
 
