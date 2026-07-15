@@ -1,0 +1,98 @@
+.food-section{
+  background:linear-gradient(180deg,#fffae7 0%,#f3ead5 100%);
+}
+
+.food-section .section-title{
+  max-width:900px;
+}
+
+.food-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+}
+
+.food-card{
+  position:relative;
+  overflow:hidden;
+  min-height:330px;
+  padding:34px;
+  border:1px solid rgba(56,69,16,.12);
+  border-radius:28px;
+  background:#fffdf3;
+  box-shadow:0 24px 70px rgba(56,69,16,.13);
+}
+
+.food-card::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-55px;
+  top:-55px;
+  border-radius:50%;
+  background:rgba(162,180,112,.23);
+}
+
+.food-card:nth-child(2)::before{
+  background:rgba(255,216,99,.28);
+}
+
+.food-card:nth-child(3)::before{
+  background:rgba(225,204,177,.42);
+}
+
+.food-card h3{
+  position:relative;
+  margin-bottom:24px;
+  font-size:clamp(30px,3vw,42px);
+}
+
+.food-card ul{
+  position:relative;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.food-card li{
+  padding:12px 0;
+  border-bottom:1px solid rgba(56,69,16,.12);
+  font-weight:500;
+}
+
+.food-card li:last-child{
+  border-bottom:0;
+}
+
+.food-suggestion{
+  margin:34px 0 0;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,3vw,42px);
+  color:#384510;
+}
+
+@media(max-width:950px){
+  .food-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .food-card:last-child{
+    grid-column:1 / -1;
+  }
+}
+
+@media(max-width:620px){
+  .food-grid{
+    grid-template-columns:1fr;
+  }
+
+  .food-card:last-child{
+    grid-column:auto;
+  }
+
+  .food-card{
+    min-height:auto;
+    padding:28px;
+  }
+}
