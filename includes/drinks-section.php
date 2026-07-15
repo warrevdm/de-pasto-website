@@ -93,11 +93,11 @@ $drinks = [
     ['Vache D’Automne Wit', '4,80'],
     ['Vache D’Automne Rosé', '4,80'],
     ['Vache D’Automne Rood', '4,80'],
-    ['Chat. Les Fontelles Zoet', '5,00'],
+    ['Chat. Les Fontenelles Zoet', '5,00'],
     ['Barrio Cava', '6,50'],
     ['Fles Buitengewoon', '25,00'],
     ['Fles Vache D’Automne', '27,00'],
-    ['Fles Chat. Les Fontelles Zoet', '28,00'],
+    ['Fles Chat. Les Fontenelles Zoet', '28,00'],
     ['Fles Cava', '32,00'],
   ],
 ];
