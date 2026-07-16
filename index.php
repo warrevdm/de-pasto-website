@@ -3,6 +3,7 @@ $pageTitle = 'De Pasto | De gezelligste huiskamer van Kapellen';
 $nav = [
   'concept' => 'Concept',
   'dranken' => 'Dranken',
+  'eten' => 'Pasta & snacks',
   'uren' => 'Openingsuren',
   'social' => 'Sociaal',
   'contact' => 'Contact'
@@ -28,7 +29,7 @@ $hours = [
   <!-- Basis SEO -->
   <meta
     name="description"
-    content="De Pasto is de gezelligste huiskamer van Kapellen. Geniet van koffie, apero en gezellige momenten in het groene kader van de Oude Pastorij."
+    content="De Pasto is de gezelligste huiskamer van Kapellen. Geniet van koffie, apero, pasta, snacks en gezellige momenten in het groene kader van de Oude Pastorij."
   >
 
   <meta
@@ -121,6 +122,7 @@ $hours = [
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/menu-upgrades.css">
   <link rel="stylesheet" href="assets/css/drinks-menu.css">
+  <link rel="stylesheet" href="assets/css/food-menu.css">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -158,6 +160,8 @@ $hours = [
           "Belgisch",
           "Koffie",
           "Aperitief",
+          "Pasta",
+          "Snacks",
           "Café"
         ],
         "openingHoursSpecification": [
@@ -169,15 +173,18 @@ $hours = [
               "Wednesday",
               "Thursday"
             ],
-            "opens": "10:00",
+            "opens": "09:00",
             "closes": "00:00"
           },
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Friday",
-              "Saturday"
-            ],
+            "dayOfWeek": "Friday",
+            "opens": "09:00",
+            "closes": "03:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
             "opens": "10:00",
             "closes": "03:00"
           },
@@ -248,6 +255,7 @@ $hours = [
       <p>Een warme ontmoetingsplek in de groene tuin van het centrum. Voor koffie, lunch, pasta, borrel en een fijne avond met vrienden.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#dranken">Bekijk de drankenkaart</a>
+        <a class="btn secondary" href="#eten">Pasta & snacks</a>
         <a class="btn secondary" href="#sfeer">Bekijk de sfeer</a>
       </div>
     </div>
@@ -289,6 +297,7 @@ $hours = [
   </section>
 
   <?php include __DIR__ . '/includes/drinks-section.php'; ?>
+  <?php include __DIR__ . '/includes/food-section.php'; ?>
 
   <section class="section hours" id="uren">
     <div class="hours-box reveal">
