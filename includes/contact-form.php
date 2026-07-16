@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || $message === '') {
     $error = 'Vul je naam, geldig e-mailadres en bericht in.';
   } else {
-    $to = 'info@depasto.be'; // Pas aan naar jullie echte e-mailadres
+    $to = 'info@de-pasto.be'; // Pas aan naar jullie echte e-mailadres
     $subject = 'Nieuw bericht via De Pasto website';
     $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
-    $headers = "From: website@depasto.be\r\nReply-To: $email\r\n";
+    $headers = "From: website@de-pasto.be\r\nReply-To: $email\r\n";
     // Zet mail() aan op hosting. Lokaal werkt dit vaak niet zonder mailserver.
     // $sent = mail($to, $subject, $body, $headers);
     $sent = true;
