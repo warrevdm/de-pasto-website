@@ -39,6 +39,7 @@
     const sections = links.map(link => document.querySelector(link.hash));
     let pending = false;
     const updateActiveLink = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
       let current = -1;
       sections.forEach((section, index) => {
         if (section && section.getBoundingClientRect().top <= header.offsetHeight + 140) current = index;
@@ -74,67 +75,88 @@
     });
   }
 
+
   const hero = document.querySelector('.hero');
   const slides = [...document.querySelectorAll('.hero-media img')];
   const controls = document.querySelector('.hero-controls');
   const sliderToggle = document.querySelector('.slider-toggle');
+  const sliderPrev = document.querySelector('.slider-prev');
+  const sliderNext = document.querySelector('.slider-next');
   const counter = document.querySelector('.slide-counter');
+  const slideCaption = document.querySelector('.slide-caption');
   if (hero && slides.length > 1 && controls && sliderToggle && counter) {
     let current = 0;
+    let requested = 0;
     let paused = false;
     let visible = true;
-    let timer;
     let loading = false;
-    const canPlay = () => !paused && !reducedMotion.matches && visible && !document.hidden;
+    let requestToken = 0;
+    let timer;
+    const canPlay = () => !paused && !reducedMotion.matches && visible &&
+      !document.hidden && !controls.contains(document.activeElement);
+    const updateInfo = () => {
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      if (slideCaption) slideCaption.textContent = slides[current].dataset.caption || '';
+    };
     const schedule = () => {
       window.clearTimeout(timer);
-      if (canPlay() && !loading) timer = window.setTimeout(nextSlide, 7000);
+      if (canPlay() && !loading) timer = window.setTimeout(() => showSlide(current + 1), 7000);
     };
-    const nextSlide = async () => {
-      if (!canPlay()) return;
-      const next = (current + 1) % slides.length;
-      const image = slides[next];
+    const showSlide = async (index, manual = false) => {
+      if (!manual && !canPlay()) return;
+      const target = ((index % slides.length) + slides.length) % slides.length;
+      const token = ++requestToken;
+      requested = target;
+      window.clearTimeout(timer);
+      if (target === current) { loading = false; schedule(); return; }
       loading = true;
+      const image = slides[target];
       try {
         if (image.dataset.src) {
-          image.srcset = image.dataset.srcset;
+          if (image.dataset.srcset) image.srcset = image.dataset.srcset;
           image.src = image.dataset.src;
           delete image.dataset.src;
+          delete image.dataset.srcset;
         }
         await image.decode();
-        if (canPlay()) {
-          slides[current].classList.remove('is-active');
-          image.classList.add('is-active');
-          current = next;
-          counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
-        }
+        if (token !== requestToken) return;
+        if (!manual && !canPlay()) { requested = current; return; }
+        slides[current].classList.remove('is-active');
+        image.classList.add('is-active');
+        current = target;
+        requested = current;
+        updateInfo();
       } catch {
-        // Retain the loaded photo if the next image cannot be fetched.
+        if (token === requestToken) requested = current;
       } finally {
-        loading = false;
-        schedule();
+        if (token === requestToken) { loading = false; schedule(); }
       }
     };
+    if (sliderPrev) sliderPrev.addEventListener('click', () => showSlide(requested - 1, true));
+    if (sliderNext) sliderNext.addEventListener('click', () => showSlide(requested + 1, true));
     sliderToggle.addEventListener('click', () => {
       paused = !paused;
       sliderToggle.setAttribute('aria-pressed', String(paused));
       sliderToggle.setAttribute('aria-label', paused ? 'Fotoslider hervatten' : 'Fotoslider pauzeren');
-      sliderToggle.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
+      if (sliderToggle.firstElementChild) sliderToggle.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
       schedule();
     });
+    controls.addEventListener('focusin', schedule);
+    controls.addEventListener('focusout', () => window.requestAnimationFrame(schedule));
     const updateMotion = () => {
-      controls.hidden = reducedMotion.matches;
+      controls.hidden = false;
+      sliderToggle.hidden = reducedMotion.matches;
       schedule();
     };
     reducedMotion.addEventListener('change', updateMotion);
     document.addEventListener('visibilitychange', schedule);
     if ('IntersectionObserver' in window) {
-      const heroObserver = new IntersectionObserver(entries => {
+      new IntersectionObserver(entries => {
         visible = entries[0].isIntersecting;
         schedule();
-      });
-      heroObserver.observe(hero);
+      }).observe(hero);
     }
+    updateInfo();
     updateMotion();
   }
 

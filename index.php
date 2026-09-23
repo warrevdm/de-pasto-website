@@ -2,6 +2,7 @@
 $pageTitle = 'De Pasto | De gezelligste huiskamer van Kapellen';
 $nav = [
   'concept' => 'Concept',
+  'sfeer' => 'Sfeer',
   'dranken' => 'Dranken',
   'eten' => 'Pasta & snacks',
   'uren' => 'Openingsuren',
@@ -118,6 +119,7 @@ $hours = [
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/style.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/drinks-menu.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/food-menu.css') ?>">
+  <link rel="stylesheet" href="<?= $assetVersion('assets/css/design-refinements.css') ?>">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -266,7 +268,7 @@ $hours = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-card">
       <p class="eyebrow">Een groene plek. Midden in Kapellen.</p>
-      <h1 id="hero-title">De Pasto<span>De gezelligste huiskamer van Kapellen</span></h1>
+      <h1 id="hero-title">De Pasto<span>De gezelligste huiskamer<br><em>van Kapellen</em></span></h1>
       <p class="hero-description">Een warme ontmoetingsplek in de groene tuin van het centrum. Voor koffie, lunch, pasta, borrel en een fijne avond met vrienden.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#dranken">Bekijk de drankenkaart <span aria-hidden="true">↗</span></a>
@@ -277,23 +279,25 @@ $hours = [
     </div>
     <div class="hero-visual">
       <div class="hero-media" aria-hidden="true">
-        <img class="is-active" src="assets/img/optimized/pasto-08-960.webp" srcset="assets/img/optimized/pasto-08-480.webp 480w, assets/img/optimized/pasto-08-960.webp 960w, assets/img/optimized/pasto-08-1366.webp 1366w" sizes="(max-width: 760px) 100vw, 50vw" width="1366" height="2048" fetchpriority="high" alt="">
-        <img data-src="assets/img/optimized/pasto-13-960.webp" data-srcset="assets/img/optimized/pasto-13-480.webp 480w, assets/img/optimized/pasto-13-960.webp 960w, assets/img/optimized/pasto-13-1366.webp 1365w" sizes="(max-width: 760px) 100vw, 50vw" width="1365" height="2048" decoding="async" alt="">
-        <img data-src="assets/img/optimized/pasto-18-960.webp" data-srcset="assets/img/optimized/pasto-18-480.webp 480w, assets/img/optimized/pasto-18-960.webp 960w, assets/img/optimized/pasto-18-1366.webp 1200w" sizes="(max-width: 760px) 100vw, 50vw" width="1200" height="1600" decoding="async" alt="">
-        <img data-src="assets/img/optimized/pasto-01-960.webp" data-srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 760px) 100vw, 50vw" width="1366" height="2048" decoding="async" alt="">
+        <img class="is-active" src="assets/img/optimized/pasto-08-960.webp" srcset="assets/img/optimized/pasto-08-480.webp 480w, assets/img/optimized/pasto-08-960.webp 960w, assets/img/optimized/pasto-08-1366.webp 1366w" sizes="(max-width: 900px) 100vw, 50vw" width="1366" height="2048" fetchpriority="high" data-caption="De Oude Pastorij in het groen" alt="">
+        <img data-src="assets/img/optimized/pasto-13-960.webp" data-srcset="assets/img/optimized/pasto-13-480.webp 480w, assets/img/optimized/pasto-13-960.webp 960w, assets/img/optimized/pasto-13-1366.webp 1365w" sizes="(max-width: 900px) 100vw, 50vw" width="1365" height="2048" decoding="async" data-caption="Apero in de tuin" alt="">
+        <img data-src="assets/img/optimized/pasto-18-960.webp" data-srcset="assets/img/optimized/pasto-18-480.webp 480w, assets/img/optimized/pasto-18-960.webp 960w, assets/img/optimized/pasto-18-1366.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="1600" decoding="async" data-caption="Een fijne avond aan de bar" alt="">
+        <img data-src="assets/img/optimized/pasto-01-960.webp" data-srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 900px) 100vw, 50vw" width="1366" height="2048" decoding="async" data-caption="Even ontsnappen in de tuin" alt="">
       </div>
-      <div class="hero-stamp" aria-hidden="true"><div>Kom binnen.<br><em>Voel je thuis.</em></div><span>De Pasto · Kapellen</span></div>
+      <div class="hero-stamp" aria-hidden="true"><span>De Oude Pastorij</span><div>Kom binnen.<br><em>Voel je thuis.</em></div></div>
       <div class="hero-controls" hidden>
-        <span class="slide-counter" aria-hidden="true">01 / 04</span>
+        <div class="slide-info"><span class="slide-counter" aria-hidden="true">01 / 04</span><span class="slide-caption">De Oude Pastorij in het groen</span></div>
+        <button class="slider-prev" type="button" aria-label="Vorige sfeerfoto"><span aria-hidden="true">←</span></button>
+        <button class="slider-next" type="button" aria-label="Volgende sfeerfoto"><span aria-hidden="true">→</span></button>
         <button class="slider-toggle" type="button" aria-pressed="false" aria-label="Fotoslider pauzeren"><span aria-hidden="true">Ⅱ</span></button>
       </div>
     </div>
   </section>
 
   <div class="welcome-strip">
-    <p>Koffie, apero &amp; fijne avonden</p>
-    <a href="#uren">Elke dag welkom <span aria-hidden="true">↗</span></a>
-    <a href="#contact">Oude Pastorij · Dorpsstraat 45 <span aria-hidden="true">↗</span></a>
+    <p><span class="strip-label">Van vroeg tot laat</span>Koffie, apero &amp; fijne avonden</p>
+    <a href="#uren"><span><span class="strip-label">Plan je bezoek</span>Elke dag welkom</span><span aria-hidden="true">↗</span></a>
+    <a href="#contact"><span><span class="strip-label">Midden in Kapellen</span>Oude Pastorij · Dorpsstraat 45</span><span aria-hidden="true">↗</span></a>
   </div>
 
   <section class="section intro" id="concept" aria-labelledby="concept-title">
@@ -318,16 +322,16 @@ $hours = [
   <section class="section sfeer" id="sfeer" aria-labelledby="sfeer-title">
     <div class="section-title section-title-wide reveal">
       <div><p class="eyebrow">02 / Even binnenkijken</p><h2 id="sfeer-title">Groen, warm<br><em>en vol karakter.</em></h2></div>
-      <p>Van de rustige tuin tot de warme avondgloed binnen: De Pasto voelt als een plek waar je graag blijft hangen.</p>
+      <div class="gallery-intro"><p>Van de rustige tuin tot de warme avondgloed binnen: De Pasto voelt als een plek waar je graag blijft hangen.</p><p class="gallery-hint">Klik op een foto en kijk rustig rond.</p></div>
     </div>
     <div class="photo-grid">
-      <figure class="photo-item large reveal"><img src="assets/img/optimized/pasto-01-960.webp" srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 46vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Groene tuin van De Pasto met fontein en zitbank"><figcaption>Een beetje groen. Een heleboel gezelligheid.</figcaption></figure>
-      <figure class="photo-item tall reveal"><img src="assets/img/optimized/pasto-02-960.webp" srcset="assets/img/optimized/pasto-02-480.webp 480w, assets/img/optimized/pasto-02-960.webp 960w, assets/img/optimized/pasto-02-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Warme wandverlichting in een nis bij De Pasto"></figure>
-      <figure class="photo-item  reveal"><img src="assets/img/optimized/pasto-18-960.webp" srcset="assets/img/optimized/pasto-18-480.webp 480w, assets/img/optimized/pasto-18-960.webp 960w, assets/img/optimized/pasto-18-1366.webp 1200w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Medewerker van De Pasto achter de bar"></figure>
-      <figure class="photo-item  reveal"><img src="assets/img/optimized/pasto-04-960.webp" srcset="assets/img/optimized/pasto-04-480.webp 480w, assets/img/optimized/pasto-04-960.webp 960w, assets/img/optimized/pasto-04-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Gele gevel en luiken van de Oude Pastorij"></figure>
-      <figure class="photo-item wide reveal"><img src="assets/img/optimized/pasto-05-960.webp" srcset="assets/img/optimized/pasto-05-480.webp 480w, assets/img/optimized/pasto-05-960.webp 960w, assets/img/optimized/pasto-05-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 46vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Tuinpad en fontein voor de ingang van De Pasto"></figure>
-      <figure class="photo-item  reveal"><img src="assets/img/optimized/pasto-06-960.webp" srcset="assets/img/optimized/pasto-06-480.webp 480w, assets/img/optimized/pasto-06-960.webp 960w, assets/img/optimized/pasto-06-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Detail van de groene tegelwand bij De Pasto"></figure>
-      <figure class="photo-item  reveal"><img src="assets/img/optimized/pasto-07-960.webp" srcset="assets/img/optimized/pasto-07-480.webp 480w, assets/img/optimized/pasto-07-960.webp 960w, assets/img/optimized/pasto-07-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="De Oude Pastorij omringd door bomen"></figure>
+      <figure class="photo-item large reveal"><a class="photo-link" href="assets/img/gallery/pasto-01.jpeg" data-gallery aria-label="Vergroot foto: Groene tuin van De Pasto met fontein en zitbank"><img src="assets/img/optimized/pasto-01-960.webp" srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 46vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Groene tuin van De Pasto met fontein en zitbank"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a><figcaption>Een beetje groen. Een heleboel gezelligheid.</figcaption></figure>
+      <figure class="photo-item tall reveal"><a class="photo-link" href="assets/img/gallery/pasto-02.jpeg" data-gallery aria-label="Vergroot foto: Warme wandverlichting in een nis bij De Pasto"><img src="assets/img/optimized/pasto-02-960.webp" srcset="assets/img/optimized/pasto-02-480.webp 480w, assets/img/optimized/pasto-02-960.webp 960w, assets/img/optimized/pasto-02-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Warme wandverlichting in een nis bij De Pasto"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
+      <figure class="photo-item  reveal"><a class="photo-link" href="assets/img/gallery/pasto-18.jpeg" data-gallery aria-label="Vergroot foto: Medewerker van De Pasto achter de bar"><img src="assets/img/optimized/pasto-18-960.webp" srcset="assets/img/optimized/pasto-18-480.webp 480w, assets/img/optimized/pasto-18-960.webp 960w, assets/img/optimized/pasto-18-1366.webp 1200w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Medewerker van De Pasto achter de bar"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
+      <figure class="photo-item  reveal"><a class="photo-link" href="assets/img/gallery/pasto-04.jpeg" data-gallery aria-label="Vergroot foto: Gele gevel en luiken van de Oude Pastorij"><img src="assets/img/optimized/pasto-04-960.webp" srcset="assets/img/optimized/pasto-04-480.webp 480w, assets/img/optimized/pasto-04-960.webp 960w, assets/img/optimized/pasto-04-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Gele gevel en luiken van de Oude Pastorij"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
+      <figure class="photo-item wide reveal"><a class="photo-link" href="assets/img/gallery/pasto-05.jpeg" data-gallery aria-label="Vergroot foto: Tuinpad en fontein voor de ingang van De Pasto"><img src="assets/img/optimized/pasto-05-960.webp" srcset="assets/img/optimized/pasto-05-480.webp 480w, assets/img/optimized/pasto-05-960.webp 960w, assets/img/optimized/pasto-05-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 46vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Tuinpad en fontein voor de ingang van De Pasto"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
+      <figure class="photo-item  reveal"><a class="photo-link" href="assets/img/gallery/pasto-06.jpeg" data-gallery aria-label="Vergroot foto: Detail van de groene tegelwand bij De Pasto"><img src="assets/img/optimized/pasto-06-960.webp" srcset="assets/img/optimized/pasto-06-480.webp 480w, assets/img/optimized/pasto-06-960.webp 960w, assets/img/optimized/pasto-06-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="Detail van de groene tegelwand bij De Pasto"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
+      <figure class="photo-item  reveal"><a class="photo-link" href="assets/img/gallery/pasto-07.jpeg" data-gallery aria-label="Vergroot foto: De Oude Pastorij omringd door bomen"><img src="assets/img/optimized/pasto-07-960.webp" srcset="assets/img/optimized/pasto-07-480.webp 480w, assets/img/optimized/pasto-07-960.webp 960w, assets/img/optimized/pasto-07-1366.webp 1366w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 23vw" width="1366" height="2048" loading="lazy" decoding="async" alt="De Oude Pastorij omringd door bomen"><span class="photo-view" aria-hidden="true">Bekijk foto ↗</span></a></figure>
     </div>
   </section>
 
@@ -353,6 +357,7 @@ $hours = [
           <?php endforeach; ?>
         </dl>
         <p class="hours-note">Alle uren zijn lokale uren in Kapellen.</p>
+        <a class="hours-contact" href="#contact">Liever vooraf een tafel aanvragen? <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -380,7 +385,7 @@ $hours = [
         <p>Een tafel aanvragen, iets organiseren of samen iets moois opzetten? Stuur ons een bericht of mail rechtstreeks. We denken graag met je mee.</p>
         <address class="contact-details">
           <div><span class="detail-label">Mail ons</span><a class="contact-email" href="mailto:info@de-pasto.be">info@de-pasto.be <span aria-hidden="true">↗</span></a></div>
-          <div><span class="detail-label">Kom langs</span><strong>De Oude Pastorij</strong><br>Dorpsstraat 45<br>2950 Kapellen</div>
+          <div><span class="detail-label">Kom langs</span><strong>De Oude Pastorij</strong><br>Dorpsstraat 45<br>2950 Kapellen<br><a class="route-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dorpsstraat+45,+2950+Kapellen" target="_blank" rel="noopener noreferrer">Plan je route <span aria-hidden="true">↗</span><span class="visually-hidden"> (opent in een nieuw tabblad)</span></a></div>
         </address>
         <p class="reservation-note">Een reservatie is pas definitief na onze bevestiging.</p>
       </div>
@@ -393,6 +398,7 @@ $hours = [
 </main>
 
 <footer class="site-footer">
+  <div class="footer-invitation"><p>Tot straks<br><em>bij De Pasto.</em></p><a class="btn secondary" href="#contact">Een vraag of reservatie? <span aria-hidden="true">↗</span></a></div>
   <div class="footer-main">
     <div><a class="footer-brand" href="#top">De Pasto</a><p>De gezelligste huiskamer van Kapellen</p></div>
     <address>Oude Pastorij<br>Dorpsstraat 45 · 2950 Kapellen<br><a href="mailto:info@de-pasto.be">info@de-pasto.be</a></address>
@@ -404,6 +410,21 @@ $hours = [
 <nav class="mobile-cta" aria-label="Snel naar">
   <a href="#dranken">Dranken</a><a href="#eten">Pasta &amp; snacks</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a>
 </nav>
+<dialog class="gallery-dialog" aria-labelledby="gallery-dialog-title">
+  <div class="gallery-dialog-top">
+    <h2 id="gallery-dialog-title">Even binnenkijken</h2>
+    <button class="gallery-close" type="button" autofocus>Sluiten <span aria-hidden="true">×</span></button>
+  </div>
+  <figure class="gallery-dialog-figure">
+    <img class="gallery-dialog-image" alt="" decoding="async">
+    <figcaption class="gallery-dialog-caption"></figcaption>
+  </figure>
+  <div class="gallery-dialog-bottom">
+    <button class="gallery-previous" type="button" aria-label="Vorige foto">← Vorige</button>
+    <p class="gallery-status" role="status" aria-live="polite"></p>
+    <button class="gallery-next" type="button" aria-label="Volgende foto">Volgende →</button>
+  </div>
+</dialog>
 <script src="<?= $assetVersion('assets/js/main.js') ?>" defer></script>
 </body>
 </html>
