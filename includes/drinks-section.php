@@ -102,31 +102,41 @@ $drinks = [
   ],
 ];
 ?>
-<section class="section drinks-section" id="dranken">
+<section class="section drinks-section" id="dranken" aria-labelledby="drinks-heading">
   <div class="section-title reveal">
-    <p class="eyebrow">Drankenkaart</p>
-    <h2>Van koffie in de tuin tot een frisse pint aan de bar.</h2>
+    <p class="eyebrow">03 / Drankenkaart</p>
+    <h2 id="drinks-heading">Van koffie in de tuin tot een frisse pint aan de bar.</h2>
     <p>Ontdek onze selectie warme dranken, frisdranken, Belgische bieren, aperitieven, wijnen en bubbels.</p>
   </div>
 
+  <p class="drinks-hint">Kies een categorie en ontdek wat we schenken.</p>
   <div class="drinks-grid">
+    <?php $drinkCategoryIndex = 0; ?>
     <?php foreach ($drinks as $category => $items): ?>
-      <article class="drink-card reveal">
-        <h3><?= htmlspecialchars($category, ENT_QUOTES, 'UTF-8') ?></h3>
+      <?php $drinkCategoryIndex++; ?>
+      <details class="drink-card reveal">
+        <summary class="drink-card-summary">
+          <h3 class="drink-card-heading">
+          <span class="drink-category-number" aria-hidden="true"><?= sprintf('%02d', $drinkCategoryIndex) ?></span>
+          <span class="drink-category-title">
+            <span class="drink-category-name"><?= htmlspecialchars($category, ENT_QUOTES, 'UTF-8') ?></span>
+            <span class="drink-category-count"><?= count($items) ?> keuzes</span>
+          </span>
+          <svg class="drink-toggle" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </h3>
+        </summary>
         <ul class="drink-list">
           <?php foreach ($items as $item): ?>
-            <li>
-              <span><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></span>
-            </li>
+            <li><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></li>
           <?php endforeach; ?>
         </ul>
-      </article>
+      </details>
     <?php endforeach; ?>
   </div>
 
-  <div class="drinks-notes reveal">
+  <aside class="drinks-notes reveal" aria-label="Goed om te weten bij de drankenkaart">
     <p><strong>Mixers:</strong> mix sterke drank met een frisdrank naar keuze.</p>
     <p>1 rekening per tafel · Gelieve allergieën vooraf te melden.</p>
     <p>18+ voor sterke dranken · 16+ voor alcoholische dranken.</p>
-  </div>
+  </aside>
 </section>
