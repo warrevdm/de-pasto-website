@@ -265,7 +265,7 @@ $hours = [
 <main id="main" tabindex="-1">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-card">
-      <p class="eyebrow"><span class="small-star" aria-hidden="true">✳</span> Een groene plek. Midden in Kapellen.</p>
+      <p class="eyebrow">Een groene plek. Midden in Kapellen.</p>
       <h1 id="hero-title">De Pasto<span>De gezelligste huiskamer van Kapellen</span></h1>
       <p class="hero-description">Een warme ontmoetingsplek in de groene tuin van het centrum. Voor koffie, lunch, pasta, borrel en een fijne avond met vrienden.</p>
       <div class="hero-actions">
@@ -291,7 +291,7 @@ $hours = [
   </section>
 
   <div class="welcome-strip">
-    <p><span aria-hidden="true">✳</span> Koffie, apero &amp; fijne avonden</p>
+    <p>Koffie, apero &amp; fijne avonden</p>
     <a href="#uren">Elke dag welkom <span aria-hidden="true">↗</span></a>
     <a href="#contact">Oude Pastorij · Dorpsstraat 45 <span aria-hidden="true">↗</span></a>
   </div>
@@ -346,7 +346,7 @@ $hours = [
         </div>
       </div>
       <div class="hours-panel reveal">
-        <p class="hours-panel-title"><span aria-hidden="true">✳</span> Elke dag een goed moment.</p>
+        <p class="hours-panel-title">Elke dag een goed moment.</p>
         <dl class="hours-list">
           <?php foreach ($hours as $dayIndex => [$day, $time]): ?>
             <div data-weekday="<?= $dayIndex + 1 ?>"><dt><?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?></dt><dd><?= htmlspecialchars($time, ENT_QUOTES, 'UTF-8') ?></dd></div>
