@@ -8,8 +8,9 @@ Lichte PHP-website voor De Pasto in de Oude Pastorij, Kapellen. Geen buildstap, 
 - `includes/drinks-section.php`: volledige drankenkaart. Bestaande prijsvelden in de bron worden **niet weergegeven**.
 - `includes/food-section.php`: pasta en snacks, zonder prijzen.
 - `includes/contact-form.php`: contactformulier naar **info@de-pasto.be**.
-- `assets/css/style.css`, `drinks-menu.css`, `food-menu.css`: de drie actieve stylesheets.
-- `assets/js/main.js`: toegankelijke mobiele navigatie, fotoslider, subtiele animaties en dagmarkering.
+- `assets/css/style.css`, `drinks-menu.css`, `food-menu.css`: de drie basisstylesheets; `assets/css/design-refinements.css` verfijnt de huidige vormgeving.
+- `assets/js/main.js`: toegankelijke mobiele navigatie, fotoslider met handmatige bediening, subtiele animaties en dagmarkering.
+- `assets/js/experience.js`: zoeken en open-/inklappen van de drankenkaart, plus de toegankelijke fotogalerij.
 - `assets/img/gallery/`: originele foto's; `assets/img/optimized/`: responsieve WebP-versies.
 - `assets/de-pasto-favicon/`: faviconbestanden en manifest.
 
@@ -41,4 +42,12 @@ Het formulier verzendt naar `info@de-pasto.be` met afzender `website@de-pasto.be
 
 ## Onderhoud
 
-Wijzig openingsuren zowel in `$hours` als in `openingHoursSpecification` in `index.php`. Prijzen horen niet in de zichtbare menu's of structured data. Respecteer bij nieuwe foto's beschrijvende alt-teksten, vaste afmetingen en lazy loading buiten de hero. De inhoud, menu-uitklappers en contactvelden werken ook zonder JavaScript; reduced-motion schakelt de automatische slider en animaties uit.
+Wijzig openingsuren zowel in `$hours` als in `openingHoursSpecification` in `index.php`. Prijzen horen niet in de zichtbare menu's of structured data. Respecteer bij nieuwe foto's beschrijvende alt-teksten, vaste afmetingen en lazy loading buiten de hero. De inhoud, menu-uitklappers en contactvelden werken ook zonder JavaScript; reduced-motion schakelt de automatische slider en animaties uit; handmatig door foto's bladeren blijft werken.
+
+## Interactieve details
+
+De drankenzoeker filtert uitsluitend bestaande menuteksten, zonder prijzen. Zoeken is hoofdletter- en accentongevoelig. Wissen herstelt de eerder geopende categorieën. Zonder JavaScript blijven alle categorieën via native uitklappers toegankelijk.
+
+Sfeerfoto's openen in een native dialoog met vorige/volgende, pijltjestoetsen en Escape. De focus keert terug naar de aangeklikte foto. Zonder JavaScript of dialog-ondersteuning opent de fotolink het originele bestand. De routeknop opent Google Maps pas nadat een bezoeker erop klikt; er wordt geen kaart, tracker of cookie geladen.
+
+De laatste ontwerpwijziging is statisch gecontroleerd. Door een tijdelijk onbereikbare uitvoeromgeving kon die versie nog niet opnieuw in een browser of PHP-runtime worden getest. Controleer bij het lokaal bekijken de desktop- en mobiele weergave, de zoeker, fotovergroting en handmatige sliderbediening.

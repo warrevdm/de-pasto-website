@@ -110,7 +110,19 @@ $drinks = [
   </div>
 
   <p class="drinks-hint">Kies een categorie en ontdek wat we schenken.</p>
-  <div class="drinks-grid">
+  <div class="drinks-tools" hidden>
+    <div class="drinks-search" role="search" aria-label="Zoek in de drankenkaart">
+      <label for="drinks-search">Waar heb je zin in?</label>
+      <div class="drinks-search-field">
+        <input id="drinks-search" type="search" placeholder="Bijv. koffie, Duvel of alcoholvrij" autocomplete="off" spellcheck="false" aria-controls="drinks-grid" aria-describedby="drinks-search-help">
+        <button type="button" class="drinks-clear" hidden>Wissen</button>
+      </div>
+      <p id="drinks-search-help">Zoek op een drankje of categorie.</p>
+    </div>
+    <button type="button" class="drinks-expand" aria-controls="drinks-grid" aria-expanded="false">Alles openklappen</button>
+  </div>
+  <p id="drinks-status" class="drinks-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+  <div class="drinks-grid" id="drinks-grid">
     <?php $drinkCategoryIndex = 0; ?>
     <?php foreach ($drinks as $category => $items): ?>
       <?php $drinkCategoryIndex++; ?>
@@ -133,6 +145,8 @@ $drinks = [
       </details>
     <?php endforeach; ?>
   </div>
+
+  <p class="drinks-empty" hidden>Geen passende drank gevonden. Probeer een andere zoekterm of wis je zoekopdracht.</p>
 
   <aside class="drinks-notes reveal" aria-label="Goed om te weten bij de drankenkaart">
     <p><strong>Mixers:</strong> mix sterke drank met een frisdrank naar keuze.</p>
