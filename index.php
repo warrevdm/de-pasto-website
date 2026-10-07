@@ -225,7 +225,8 @@ $assetVersion = static function ($path) {
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-card">
       <p class="eyebrow hero-location"><span aria-hidden="true"></span> Café · tuin · ontmoetingen</p>
-      <h1 id="hero-title">De gezelligste<br><em>huiskamer</em><br>van Kapellen.</h1>
+      <h1 id="hero-title">De Pasto</h1>
+      <p class="hero-tagline">De gezelligste huiskamer van Kapellen.</p>
       <p class="hero-description">Een koffie in het groen. Een apero met vrienden. Een avond die nog even mag duren. Welkom in de Oude Pastorij.</p>
       <div class="hero-actions"><a class="btn primary" href="#kaart">Ontdek onze kaart <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-contact-intent="reservatie">Schuif aan <span aria-hidden="true">↗</span></a></div>
       <div class="hero-footnote"><span class="fine-rule" aria-hidden="true"></span><span>Een bijzondere plek. Een vertrouwd gevoel.</span></div>

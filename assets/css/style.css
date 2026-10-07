@@ -99,8 +99,8 @@ address { font-style: normal; }
 .eyebrow { margin: 0 0 23px; color: var(--green); font-size: 10px; font-weight: 600; letter-spacing: .16em; line-height: 1.6; text-transform: uppercase; }
 .hero-location { display: flex; align-items: center; gap: 13px; }
 .hero-location > span { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); }
-.hero h1 { line-height: 1.06; letter-spacing: -.057em; }
-.hero h1 em { color: #66743c; }
+.hero h1 { font-size: clamp(88px, 10vw, 150px); line-height: 1.06; letter-spacing: -.057em; }
+.hero-tagline { margin: 18px 0 0; color: #626b44; font-size: 13px; font-weight: 400; letter-spacing: .015em; }
 .hero-description { max-width: 420px; margin: 32px 0; font-size: 14px; line-height: 1.9; }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; padding: 14px 22px; border: 1px solid var(--green); border-radius: 2px; color: var(--green); font-size: 11px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; }
@@ -291,7 +291,7 @@ address { font-style: normal; }
   .site-nav .nav-reservation { margin-top: 8px; justify-content: space-between; padding: 12px 18px; }
   .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 35px; }
   .hero-card { padding: 0; }
-  .hero h1 { font-size: clamp(58px, 9vw, 82px); }
+  .hero h1 { font-size: clamp(88px, 14vw, 126px); }
   .hero-description { max-width: 480px; }
   .hero-footnote { margin-top: 28px; }
   .hero-visual { min-height: 0; height: 610px; margin-left: 24px; }
@@ -336,7 +336,8 @@ address { font-style: normal; }
   .section-title-wide { display: block; }
   .section-title-wide > p, .gallery-intro { margin-top: 25px; max-width: 450px; }
   .hero { padding-block: 36px 36px; gap: 33px; }
-  .hero h1 { font-size: clamp(46px, 11.5vw, 76px); }
+  .hero h1 { font-size: clamp(68px, 17vw, 108px); }
+  .hero-tagline { max-width: 310px; margin-top: 13px; font-size: 11px; }
   .hero .eyebrow { font-size: 8px; margin-bottom: 20px; }
   .hero-description { margin-block: 25px; font-size: 13px; }
   .hero-actions { gap: 20px; }
