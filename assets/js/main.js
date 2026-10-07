@@ -35,7 +35,7 @@
     });
     mobileNav.addEventListener('change', () => closeMenu());
 
-    const links = [...nav.querySelectorAll('a[href^="#"]')];
+    const links = [...nav.querySelectorAll('a[href^="#"]:not(.nav-reservation)')];
     const sections = links.map(link => document.querySelector(link.hash));
     let pending = false;
     const updateActiveLink = () => {
@@ -179,6 +179,31 @@
   };
   highlightToday();
   document.addEventListener('visibilitychange', () => { if (!document.hidden) highlightToday(); });
+
+  // Reservation links choose the subject without changing anything already typed.
+  const topic = document.querySelector('#contact-topic');
+  if (topic) {
+    document.querySelectorAll('[data-contact-intent]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if ([...topic.options].some(option => option.value === link.dataset.contactIntent)) {
+          topic.value = link.dataset.contactIntent;
+        }
+      });
+    });
+  }
+
+  // Moment cards lead directly to the matching category; anchors still work without JS.
+  const drinksSearch = document.querySelector('#drinks-search');
+  if (drinksSearch) {
+    document.querySelectorAll('[data-drink-query]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        drinksSearch.value = link.dataset.drinkQuery;
+        drinksSearch.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+  }
 
   const feedback = document.querySelector('[data-form-feedback]');
   if (feedback) {

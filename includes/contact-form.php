@@ -4,6 +4,8 @@ $error = '';
 $name = '';
 $email = '';
 $message = '';
+$topics = ['vraag' => 'Een vraag', 'reservatie' => 'Een reservatie', 'samenwerking' => 'Een samenwerking'];
+$topic = 'vraag';
 
 $escape = static function ($value) {
   return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -15,7 +17,7 @@ $textLength = static function ($value) {
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
   // Only accept strings: crafted array fields must never crash the page.
   $validFields = true;
-  foreach (['name', 'email', 'message', 'website'] as $field) {
+  foreach (['name', 'email', 'message', 'website', 'topic'] as $field) {
     if (isset($_POST[$field]) && !is_string($_POST[$field])) {
       $validFields = false;
     }
@@ -25,8 +27,10 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
   $email = is_string($_POST['email'] ?? null) ? trim($_POST['email']) : '';
   $message = is_string($_POST['message'] ?? null) ? trim($_POST['message']) : '';
   $website = is_string($_POST['website'] ?? null) ? trim($_POST['website']) : '';
+  $topic = is_string($_POST['topic'] ?? null) ? $_POST['topic'] : 'vraag';
 
-  if (!$validFields) {
+  if (!$validFields || !isset($topics[$topic])) {
+    $topic = 'vraag';
     $error = 'We konden je gegevens niet verwerken. Vul het formulier opnieuw in.';
   } elseif ($website !== '') {
     $error = 'Je bericht kon niet worden verstuurd. Mail ons rechtstreeks via info@de-pasto.be.';
@@ -41,8 +45,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $error = 'Gebruik maximaal 120 tekens voor je naam, 254 voor je e-mailadres en 5.000 voor je bericht.';
   } else {
     $to = 'info@de-pasto.be';
-    $subject = 'Nieuw bericht via De Pasto website';
+    $subject = 'De Pasto website: ' . $topics[$topic];
     $body = "Je ontving een nieuw bericht via de website van De Pasto.\n\n";
+    $body .= "Onderwerp: {$topics[$topic]}\n";
     $body .= "Naam: {$name}\n";
     $body .= "E-mail: {$email}\n\n";
     $body .= "Bericht:\n{$message}\n";
@@ -73,7 +78,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 ?>
 <form class="contact-form" method="post" action="#contact" aria-label="Contactformulier">
   <?php if ($sent): ?>
-    <p class="form-feedback form-success" role="status" tabindex="-1" data-form-feedback>Bedankt! Je bericht is aangeboden aan onze mailserver. Een reservatie is pas definitief na onze bevestiging.</p>
+    <p class="form-feedback form-success" role="status" tabindex="-1" data-form-feedback>Bedankt voor je bericht! Een reservatie is pas definitief na onze bevestiging.</p>
   <?php elseif ($error !== ''): ?>
     <p class="form-feedback form-error" role="alert" tabindex="-1" data-form-feedback><?= $escape($error) ?></p>
   <?php endif; ?>
@@ -82,6 +87,15 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     <label for="contact-website">Laat dit veld leeg</label>
     <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off" maxlength="200">
   </div>
+
+  <label for="contact-topic">
+    Waarover gaat je bericht?
+    <select id="contact-topic" name="topic" required>
+      <?php foreach ($topics as $value => $label): ?>
+        <option value="<?= $escape($value) ?>" <?= $topic === $value ? 'selected' : '' ?>><?= $escape($label) ?></option>
+      <?php endforeach; ?>
+    </select>
+  </label>
 
   <label for="contact-name">
     Naam <span aria-hidden="true">*</span>

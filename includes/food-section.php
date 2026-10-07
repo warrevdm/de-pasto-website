@@ -4,14 +4,15 @@ $foodItems = [
     'Pasta Bolognese',
     'Pasta Carbonara',
   ],
-  'Snacks' => [
+  'Snacks & iets zoets' => [
     'Buitengewone Croque enkel',
     'Buitengewone Croque dubbel',
     'Mozzarella bites',
     'Bitterballen',
     'Warm gemengd',
-    'Kippenboutjes',
     'Pinsa pizza',
+    'Pannenkoeken',
+    'Suggestie',
   ],
   'Chips' => [
     'Chips zout',
@@ -20,12 +21,17 @@ $foodItems = [
     'Chips Thai curry explosions',
   ],
 ];
+$foodDescriptions = [
+  'Pasta Bolognese' => 'Kleine of grote portie.',
+  'Pasta Carbonara' => 'Kleine of grote portie.',
+  'Pannenkoeken' => 'Enkel of dubbel.',
+];
 ?>
 <section class="section food-section" id="eten" aria-labelledby="food-heading">
   <div class="section-title reveal">
-    <p class="eyebrow">04 / Pasta &amp; snacks</p>
-    <h2 id="food-heading">Iets kleins, iets warms of gewoon iets gezellig om te delen.</h2>
-    <p>Van pasta tot croques en warme snacks: ideaal voor een snelle hap, een gezellige avond of iets om samen te delen.</p>
+    <p class="eyebrow">Pasta &amp; snacks</p>
+    <h2 id="food-heading">Met goesting <em>gemaakt.</em></h2>
+    <p>Een bord pasta, een warme croque of iets om te delen. Schuif aan, wij zorgen voor de rest.</p>
   </div>
 
   <div class="food-grid">
@@ -35,12 +41,17 @@ $foodItems = [
       <article class="food-card reveal" aria-labelledby="food-category-<?= $foodCategoryIndex ?>">
         <div class="food-card-heading">
           <span class="food-category-number" aria-hidden="true"><?= sprintf('%02d', $foodCategoryIndex) ?></span>
-          <svg class="food-card-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.3"/><circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M16 1v4M16 27v4M1 16h4M27 16h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span class="food-category-rule" aria-hidden="true"></span>
         </div>
         <h3 id="food-category-<?= $foodCategoryIndex ?>"><?= htmlspecialchars($category, ENT_QUOTES, 'UTF-8') ?></h3>
         <ul class="food-list">
           <?php foreach ($items as $item): ?>
-            <li><?= htmlspecialchars($item, ENT_QUOTES, 'UTF-8') ?></li>
+            <li>
+              <span class="food-name"><?= htmlspecialchars($item, ENT_QUOTES, 'UTF-8') ?></span>
+              <?php if (isset($foodDescriptions[$item])): ?>
+                <span class="food-detail"><?= htmlspecialchars($foodDescriptions[$item], ENT_QUOTES, 'UTF-8') ?></span>
+              <?php endif; ?>
+            </li>
           <?php endforeach; ?>
         </ul>
       </article>
@@ -48,7 +59,6 @@ $foodItems = [
   </div>
 
   <aside class="food-note reveal" aria-label="Goed om te weten bij de eetkaart">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 11v6M12 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <p>Vraag gerust naar onze suggesties. Gelieve allergieën vooraf te melden.</p>
+    <p><strong>Vraag gerust naar onze suggesties.</strong> Gelieve allergieën vooraf te melden.</p>
   </aside>
 </section>
