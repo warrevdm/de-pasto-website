@@ -110,6 +110,7 @@ $assetVersion = static function ($path) {
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/drinks-menu.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/food-menu.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/features.css') ?>">
+  <link rel="stylesheet" href="<?= $assetVersion('assets/css/hero.css') ?>">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -223,29 +224,37 @@ $assetVersion = static function ($path) {
   </nav>
 </header>
 <main id="main" tabindex="-1">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-card">
-      <p class="eyebrow hero-location"><span aria-hidden="true"></span> Café · tuin · ontmoetingen</p>
+  <section class="hero hero-experience" id="hero-experience" aria-labelledby="hero-title">
+    <div class="hero-scene-media" aria-hidden="true">
+      <div class="hero-scene is-active" data-hero-scene="tuin" data-title="Koffie in het groen." data-description="Frisse lucht, een rustige koffie en even uit de drukte. Neem plaats in de tuin van de Oude Pastorij." data-link="#dranken" data-link-label="Kies je koffie" data-query="Warme dranken">
+        <img src="assets/img/optimized/pasto-01-960.webp" srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 900px) 96vw, 70vw" width="1366" height="2048" fetchpriority="high" alt="">
+      </div>
+      <div class="hero-scene" data-hero-scene="bar" data-title="Op het goede gezelschap." data-description="Een frisse pint, een aperitief en een goed gesprek. Aan de bar is er altijd een reden om aan te schuiven." data-link="#dranken" data-link-label="Ontdek de apero" data-query="Aperitief">
+        <img data-src="assets/img/optimized/pasto-15-960.webp" data-srcset="assets/img/optimized/pasto-15-480.webp 480w, assets/img/optimized/pasto-15-960.webp 960w, assets/img/optimized/pasto-15-1366.webp 1366w" sizes="(max-width: 900px) 96vw, 70vw" width="1366" height="2048" decoding="async" alt="">
+      </div>
+      <div class="hero-scene" data-hero-scene="avond" data-title="Nog eentje dan." data-description="De lichten gaan aan, de verhalen gaan verder. Voor die avonden waarop je gerust nog even blijft." data-link="#uren" data-link-label="Plan je avond">
+        <img data-src="assets/img/optimized/pasto-03-960.webp" data-srcset="assets/img/optimized/pasto-03-480.webp 480w, assets/img/optimized/pasto-03-960.webp 960w, assets/img/optimized/pasto-03-1366.webp 1366w" sizes="(max-width: 900px) 96vw, 70vw" width="1366" height="2048" decoding="async" alt="">
+      </div>
+    </div>
+    <div class="hero-experience-copy">
+      <p class="eyebrow hero-experience-location"><span aria-hidden="true"></span> Oude Pastorij · Kapellen</p>
       <h1 id="hero-title">De Pasto</h1>
       <p class="hero-tagline">De gezelligste huiskamer van Kapellen.</p>
-      <p class="hero-description">Een koffie in het groen. Een apero met vrienden. Een avond die nog even mag duren. Welkom in de Oude Pastorij.</p>
-      <div class="hero-actions"><a class="btn primary" href="#kaart">Ontdek onze kaart <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-contact-intent="reservatie">Schuif aan <span aria-hidden="true">↗</span></a></div>
-      <div class="hero-footnote"><span class="fine-rule" aria-hidden="true"></span><span>Een bijzondere plek. Een vertrouwd gevoel.</span></div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-media" aria-hidden="true">
-        <img class="is-active" src="assets/img/optimized/pasto-08-960.webp" srcset="assets/img/optimized/pasto-08-480.webp 480w, assets/img/optimized/pasto-08-960.webp 960w, assets/img/optimized/pasto-08-1366.webp 1366w" sizes="(max-width: 900px) 90vw, 48vw" width="1366" height="2048" fetchpriority="high" data-caption="De Oude Pastorij in het groen" alt="">
-        <img data-src="assets/img/optimized/pasto-01-960.webp" data-srcset="assets/img/optimized/pasto-01-480.webp 480w, assets/img/optimized/pasto-01-960.webp 960w, assets/img/optimized/pasto-01-1366.webp 1366w" sizes="(max-width: 900px) 90vw, 48vw" width="1366" height="2048" decoding="async" data-caption="Een rustig moment in de tuin" alt="">
-        <img data-src="assets/img/optimized/pasto-03-960.webp" data-srcset="assets/img/optimized/pasto-03-480.webp 480w, assets/img/optimized/pasto-03-960.webp 960w, assets/img/optimized/pasto-03-1366.webp 1366w" sizes="(max-width: 900px) 90vw, 48vw" width="1366" height="2048" decoding="async" data-caption="De Pastorij in de avondgloed" alt="">
-        <img data-src="assets/img/optimized/pasto-02-960.webp" data-srcset="assets/img/optimized/pasto-02-480.webp 480w, assets/img/optimized/pasto-02-960.webp 960w, assets/img/optimized/pasto-02-1366.webp 1366w" sizes="(max-width: 900px) 90vw, 48vw" width="1366" height="2048" decoding="async" data-caption="Warmte in de kleinste details" alt="">
-      </div>
-      <div class="hero-note"><span>De Oude Pastorij</span><p>Kom binnen.<br><em>Voel je thuis.</em></p></div>
-      <div class="hero-controls" hidden>
-        <div class="slide-info"><span class="slide-counter" aria-hidden="true">01 / 04</span><span class="slide-caption">De Oude Pastorij in het groen</span></div>
-        <button class="slider-prev" type="button" aria-label="Vorige sfeerfoto">←</button><button class="slider-next" type="button" aria-label="Volgende sfeerfoto">→</button><button class="slider-toggle" type="button" aria-pressed="false" aria-label="Fotoslider pauzeren"><span aria-hidden="true">Ⅱ</span></button>
-        <p class="visually-hidden" role="status" aria-live="polite" data-hero-status></p>
+      <div class="hero-scene-story">
+        <h2 data-hero-scene-title>Koffie in het groen.</h2>
+        <p data-hero-scene-description>Frisse lucht, een rustige koffie en even uit de drukte. Neem plaats in de tuin van de Oude Pastorij.</p>
+        <div class="hero-experience-actions"><a class="btn" href="#dranken" data-hero-scene-link><span class="hero-link-label" data-hero-link-label>Kies je koffie</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-contact-intent="reservatie">Schuif aan <span aria-hidden="true">↗</span></a></div>
       </div>
     </div>
+    <div class="hero-moments" data-hero-controls hidden>
+      <div class="hero-moments-heading"><span>Kies jouw moment</span><span class="hero-moments-hint">Drie keer De Pasto <span aria-hidden="true">↔</span></span></div>
+      <div class="hero-choices" role="group" aria-label="Kies de sfeer van de hoofdbanner">
+        <button type="button" class="hero-choice" data-hero-choice="tuin" aria-pressed="true" aria-controls="hero-experience"><img src="assets/img/optimized/pasto-01-480.webp" width="56" height="64" alt="" loading="lazy"><span class="hero-choice-copy"><span class="hero-choice-index" aria-hidden="true">01</span><span class="hero-choice-name">In de tuin</span><span class="hero-choice-detail">Koffie &amp; frisse lucht</span></span><span class="hero-choice-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="hero-choice" data-hero-choice="bar" aria-pressed="false" aria-controls="hero-experience"><img src="assets/img/optimized/pasto-15-480.webp" width="56" height="64" alt="" loading="lazy"><span class="hero-choice-copy"><span class="hero-choice-index" aria-hidden="true">02</span><span class="hero-choice-name">Aan de bar</span><span class="hero-choice-detail">Apero &amp; gezelschap</span></span><span class="hero-choice-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="hero-choice" data-hero-choice="avond" aria-pressed="false" aria-controls="hero-experience"><img src="assets/img/optimized/pasto-03-480.webp" width="56" height="64" alt="" loading="lazy"><span class="hero-choice-copy"><span class="hero-choice-index" aria-hidden="true">03</span><span class="hero-choice-name">Nog even blijven</span><span class="hero-choice-detail">Een avond bij ons</span></span><span class="hero-choice-arrow" aria-hidden="true">↗</span></button>
+      </div>
+    </div>
+    <p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true" data-hero-status></p>
   </section>
   <div class="welcome-strip">
     <a href="#uren"><span><span class="strip-label">Elke dag welkom</span>Kijk wanneer je kan aanschuiven</span><span aria-hidden="true">↗</span></a>
@@ -338,6 +347,7 @@ $assetVersion = static function ($path) {
 <nav class="mobile-cta" aria-label="Snel naar"><a href="#kaart">De kaart</a><a href="#uren">Je bezoek</a><a href="#contact" data-contact-intent="reservatie">Tafel aanvragen <span aria-hidden="true">↗</span></a></nav>
 <dialog class="gallery-dialog" aria-labelledby="gallery-dialog-title"><div class="gallery-dialog-top"><h2 id="gallery-dialog-title">Even binnenkijken</h2><button class="gallery-close" type="button" autofocus>Sluiten <span aria-hidden="true">×</span></button></div><figure class="gallery-dialog-figure"><img class="gallery-dialog-image" alt="" decoding="async"><figcaption class="gallery-dialog-caption"></figcaption></figure><div class="gallery-thumbnails" role="group" aria-label="Kies een sfeerfoto" hidden></div><p class="gallery-gesture-hint" hidden>Veeg om te bladeren.</p><div class="gallery-dialog-bottom"><button class="gallery-previous" type="button" aria-label="Vorige foto">← Vorige</button><p class="gallery-status" role="status" aria-live="polite"></p><button class="gallery-next" type="button" aria-label="Volgende foto">Volgende →</button></div></dialog>
 <script src="<?= $assetVersion('assets/js/main.js') ?>" defer></script>
+<script src="<?= $assetVersion('assets/js/hero.js') ?>" defer></script>
 <script src="<?= $assetVersion('assets/js/experience.js') ?>" defer></script>
 <script src="<?= $assetVersion('assets/js/gallery.js') ?>" defer></script>
 <script src="<?= $assetVersion('assets/js/contact.js') ?>" defer></script>

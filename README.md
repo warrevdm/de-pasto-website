@@ -14,7 +14,9 @@ De homepage leidt bezoekers van de sfeer en het verhaal naar de kaart, foto's, s
 - `assets/css/style.css`: globale typografie, layout, responsiviteit, fotovergroting en toegankelijkheid.
 - `assets/css/drinks-menu.css` en `food-menu.css`: de afzonderlijke menucomponenten.
 - `assets/css/features.css`: alleen aanvullende controls; de bestaande visuele stijl en `style.css` blijven behouden.
-- `assets/js/main.js`: mobiele navigatie, actieve sectie, handmatige/automatische hero, dagmarkering en directe links naar menu/contact.
+- `assets/css/hero.css`: de interactieve hoofdbanner, binnen dezelfde kleuren en typografie.
+- `assets/js/main.js`: mobiele navigatie, actieve sectie, dagmarkering en directe links naar menu/contact.
+- `assets/js/hero.js`: drie handmatig gekozen scènes, bijpassende links, veegbediening en subtiele muisbeweging.
 - `assets/js/experience.js`: drankenzoeker, snelle filters en deelbare selecties.
 - `assets/js/gallery.js`: toegankelijke fotovergroting, miniaturen en veegbediening.
 - `assets/js/contact.js`: voorwaardelijke reservatievelden, veldhulp en verzendstatus.
@@ -55,7 +57,9 @@ Een reservatieknop kiest het bijbehorende formulieronderwerp zonder ingevulde te
 
 De fotogalerij gebruikt een native dialoog met vorige/volgende, pijltjestoetsen, Home/End, miniaturen, veegbediening en Escape. De focus keert terug naar de aangeklikte foto. De vergrote foto gebruikt geoptimaliseerde WebP; bij fouten blijft de kleinere foto zichtbaar. Alleen de twee aangrenzende 960px-beelden worden op de achtergrond voorbereid, met respect voor databesparing.
 
-De grote sfeerfoto ondersteunt veegbediening en pijltjestoetsen via de bestaande controls. Automatische wissels pauzeren zolang de muis of toetsenbordfocus op het openingsbeeld staat. Verticale scroll en pinch-zoom blijven beschikbaar. Reduced-motion schakelt automatische fotografie en animaties uit; handmatige bediening blijft werken. De routeknoppen laden Google Maps pas na een klik; er staat geen externe kaartembed op de pagina.
+De hoofdbanner laat bezoekers kiezen tussen de tuin, de bar en de avond. Foto, korte omschrijving en bijpassende link wisselen samen; de naam en subtiele slogan blijven vast. De koffie- en aperolinks zetten direct de passende drankenrubriek klaar. Er is geen automatische rotatie. Alleen een gekozen scène laadt een volgende grote foto; de miniaturen gebruiken kleinere WebP-bestanden. Een mislukte of verouderde fotoaanvraag overschrijft de huidige scène niet.
+
+De drie keuzes werken met klikken, Tab, pijltjestoetsen en Home/End. Op een aanraakscherm kan je horizontaal over de foto vegen; verticale scroll en pinch-zoom blijven beschikbaar. Alleen bij een fijne muisaanwijzer beweegt de foto maximaal acht pixels mee. Reduced-motion schakelt die beweging en de overgangen uit. Zonder JavaScript blijven de eerste scène en de navigatielinks bruikbaar. De routeknoppen laden Google Maps pas na een klik; er staat geen externe kaartembed op de pagina.
 
 ## Contactmail controleren
 
@@ -71,6 +75,6 @@ Servervalidatie controleert onderwerp, naam, e-mailadres, bericht en eventuele r
 
 ## Controle van deze herwerking
 
-PHP- en JavaScript-syntax, browserweergave en interacties zijn gecontroleerd met PHP 8.3 en Chromium op breedtes van 320 tot 1440 pixels. De aanvullende controles omvatten menucombinaties en deelbare links, galerijbediening, veeggebaren, voorwaardelijke formuliervelden, ongeldige invoer en het behouden van gegevens bij ontbrekend mailtransport. De drie bestaande stijlbestanden zijn ongewijzigd; het openingsbeeld is visueel vergeleken met de vorige versie. Controleer voor publicatie ook de uren/kaart en de daadwerkelijke productie-mailaflevering. Het formulier verstuurt een aanvraag; beschikbaarheid wordt persoonlijk bevestigd.
+PHP- en JavaScript-syntax, browserweergave en interacties zijn gecontroleerd met PHP 8.3 en Chromium op breedtes van 320 tot 1440 pixels. De aanvullende controles omvatten menuselecties, galerijbediening, voorwaardelijke formuliervelden, ongeldige invoer en gegevensbehoud bij ontbrekend mailtransport. De banner krijgt afzonderlijke controles voor toetsenbord, vegen, snelle scènekeuzes, fotolaadfouten en verminderde beweging. De drie bestaande stijlbestanden zijn ongewijzigd; de banner heeft een eigen stylesheet. Controleer voor publicatie ook de uren/kaart en de daadwerkelijke productie-mailaflevering. Het formulier verstuurt een aanvraag; beschikbaarheid wordt persoonlijk bevestigd.
 
-Visuele previews: [desktop](docs/preview-desktop.jpg), [mobiel](docs/preview-mobile.jpg), [kaartfilters](docs/preview-menu.jpg), [fotogalerij](docs/preview-gallery.jpg) en [reservatieaanvraag](docs/preview-reservation.jpg).
+Visuele previews: [desktop](docs/preview-desktop.jpg), [mobiel](docs/preview-mobile.jpg), [banner aan de bar](docs/preview-hero-bar.jpg), [banner in de avond](docs/preview-hero-avond.jpg), [kaartfilters](docs/preview-menu.jpg), [fotogalerij](docs/preview-gallery.jpg) en [reservatieaanvraag](docs/preview-reservation.jpg).
