@@ -109,6 +109,7 @@ $assetVersion = static function ($path) {
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/style.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/drinks-menu.css') ?>">
   <link rel="stylesheet" href="<?= $assetVersion('assets/css/food-menu.css') ?>">
+  <link rel="stylesheet" href="<?= $assetVersion('assets/css/features.css') ?>">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -242,6 +243,7 @@ $assetVersion = static function ($path) {
       <div class="hero-controls" hidden>
         <div class="slide-info"><span class="slide-counter" aria-hidden="true">01 / 04</span><span class="slide-caption">De Oude Pastorij in het groen</span></div>
         <button class="slider-prev" type="button" aria-label="Vorige sfeerfoto">←</button><button class="slider-next" type="button" aria-label="Volgende sfeerfoto">→</button><button class="slider-toggle" type="button" aria-pressed="false" aria-label="Fotoslider pauzeren"><span aria-hidden="true">Ⅱ</span></button>
+        <p class="visually-hidden" role="status" aria-live="polite" data-hero-status></p>
       </div>
     </div>
   </section>
@@ -314,7 +316,7 @@ $assetVersion = static function ($path) {
   <section class="section practical" aria-labelledby="practical-title">
     <div class="section-title"><p class="eyebrow">Goed om te weten</p><h2 id="practical-title">Nog een <em>vraagje?</em></h2></div>
     <div class="faq-list">
-      <details><summary>Hoe vraag ik een tafel aan?<span aria-hidden="true">+</span></summary><p>Via het contactformulier of info@de-pasto.be. Vermeld je gewenste datum, uur en aantal personen. Je reservatie is pas definitief na onze bevestiging.</p></details>
+      <details><summary>Hoe vraag ik een tafel aan?<span aria-hidden="true">+</span></summary><p>Kies ‘Een reservatie’ in het contactformulier en vul je gewenste datum, uur en aantal personen in. Of mail ons via info@de-pasto.be. Je reservatie is pas definitief na onze bevestiging.</p></details>
       <details><summary>Tot wanneer kan ik iets eten?<span aria-hidden="true">+</span></summary><p>Onze keuken is open tot 20:00. Late snacks zijn beschikbaar tot 30 minuten voor sluiting. Vraag gerust naar onze suggesties.</p></details>
       <details><summary>Wat als ik een allergie heb?<span aria-hidden="true">+</span></summary><p>Meld je allergieën vooraf aan ons team. We bekijken graag samen welke keuze geschikt is voor jou.</p></details>
       <details><summary>Een idee voor een samenwerking of samenkomst?<span aria-hidden="true">+</span></summary><p>Vertel ons wat je in gedachten hebt via het contactformulier. We denken graag mee en bespreken samen wat mogelijk is.</p></details>
@@ -334,8 +336,10 @@ $assetVersion = static function ($path) {
   <div class="footer-bottom"><span>© <?= date('Y') ?> De Pasto · Team Pasto</span><span>BTW BE1036.699.079</span><span>Met goesting, in Kapellen.</span></div>
 </footer>
 <nav class="mobile-cta" aria-label="Snel naar"><a href="#kaart">De kaart</a><a href="#uren">Je bezoek</a><a href="#contact" data-contact-intent="reservatie">Tafel aanvragen <span aria-hidden="true">↗</span></a></nav>
-<dialog class="gallery-dialog" aria-labelledby="gallery-dialog-title"><div class="gallery-dialog-top"><h2 id="gallery-dialog-title">Even binnenkijken</h2><button class="gallery-close" type="button" autofocus>Sluiten <span aria-hidden="true">×</span></button></div><figure class="gallery-dialog-figure"><img class="gallery-dialog-image" alt="" decoding="async"><figcaption class="gallery-dialog-caption"></figcaption></figure><div class="gallery-dialog-bottom"><button class="gallery-previous" type="button" aria-label="Vorige foto">← Vorige</button><p class="gallery-status" role="status" aria-live="polite"></p><button class="gallery-next" type="button" aria-label="Volgende foto">Volgende →</button></div></dialog>
+<dialog class="gallery-dialog" aria-labelledby="gallery-dialog-title"><div class="gallery-dialog-top"><h2 id="gallery-dialog-title">Even binnenkijken</h2><button class="gallery-close" type="button" autofocus>Sluiten <span aria-hidden="true">×</span></button></div><figure class="gallery-dialog-figure"><img class="gallery-dialog-image" alt="" decoding="async"><figcaption class="gallery-dialog-caption"></figcaption></figure><div class="gallery-thumbnails" role="group" aria-label="Kies een sfeerfoto" hidden></div><p class="gallery-gesture-hint" hidden>Veeg om te bladeren.</p><div class="gallery-dialog-bottom"><button class="gallery-previous" type="button" aria-label="Vorige foto">← Vorige</button><p class="gallery-status" role="status" aria-live="polite"></p><button class="gallery-next" type="button" aria-label="Volgende foto">Volgende →</button></div></dialog>
 <script src="<?= $assetVersion('assets/js/main.js') ?>" defer></script>
 <script src="<?= $assetVersion('assets/js/experience.js') ?>" defer></script>
+<script src="<?= $assetVersion('assets/js/gallery.js') ?>" defer></script>
+<script src="<?= $assetVersion('assets/js/contact.js') ?>" defer></script>
 </body>
 </html>

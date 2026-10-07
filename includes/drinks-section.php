@@ -130,14 +130,26 @@ $drinkDescriptions = [
       <label for="drinks-search">Waar heb je zin in?</label>
       <div class="drinks-search-field">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <input id="drinks-search" type="search" placeholder="Bijv. koffie, Duvel of alcoholvrij" autocomplete="off" spellcheck="false" aria-controls="drinks-grid" aria-describedby="drinks-search-help">
+        <input id="drinks-search" type="search" placeholder="Bijv. koffie, Duvel of alcoholvrij" autocomplete="off" spellcheck="false" maxlength="120" aria-controls="drinks-grid" aria-describedby="drinks-search-help">
         <button type="button" class="drinks-clear" hidden>Wissen</button>
       </div>
       <p id="drinks-search-help">Zoek op een drankje of categorie.</p>
     </div>
     <button type="button" class="drinks-expand" aria-controls="drinks-grid" aria-expanded="false">Alles openklappen</button>
   </div>
+  <div class="drinks-filters" role="group" aria-label="Kies een drankcategorie" hidden>
+    <button type="button" class="drinks-filter" data-drink-filter="alles" aria-pressed="true" aria-controls="drinks-grid">Alles</button>
+    <button type="button" class="drinks-filter" data-drink-filter="koffie" aria-pressed="false" aria-controls="drinks-grid">Koffie &amp; thee</button>
+    <button type="button" class="drinks-filter" data-drink-filter="bieren" aria-pressed="false" aria-controls="drinks-grid">Bieren</button>
+    <button type="button" class="drinks-filter" data-drink-filter="apero" aria-pressed="false" aria-controls="drinks-grid">Apero</button>
+    <button type="button" class="drinks-filter" data-drink-filter="alcoholvrij" aria-pressed="false" aria-controls="drinks-grid">0.0</button>
+    <button type="button" class="drinks-share">Kopieer deze selectie <span aria-hidden="true">↗</span></button>
+  </div>
   <p id="drinks-status" class="drinks-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+  <div class="drinks-share-fallback" hidden>
+    <label for="drinks-share-url">Kopieer de link naar deze selectie:</label>
+    <input id="drinks-share-url" type="url" readonly spellcheck="false">
+  </div>
   <div class="drinks-grid" id="drinks-grid">
     <?php $drinkCategoryIndex = 0; ?>
     <?php foreach ($drinks as $category => $items): ?>

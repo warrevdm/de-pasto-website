@@ -13,8 +13,11 @@ De homepage leidt bezoekers van de sfeer en het verhaal naar de kaart, foto's, s
 - `includes/contact-form.php`: contactformulier naar `info@de-pasto.be`, met onderwerp vraag, reservatie of samenwerking.
 - `assets/css/style.css`: globale typografie, layout, responsiviteit, fotovergroting en toegankelijkheid.
 - `assets/css/drinks-menu.css` en `food-menu.css`: de afzonderlijke menucomponenten.
+- `assets/css/features.css`: alleen aanvullende controls; de bestaande visuele stijl en `style.css` blijven behouden.
 - `assets/js/main.js`: mobiele navigatie, actieve sectie, handmatige/automatische hero, dagmarkering en directe links naar menu/contact.
-- `assets/js/experience.js`: drankenzoeker en toegankelijke fotogalerij.
+- `assets/js/experience.js`: drankenzoeker, snelle filters en deelbare selecties.
+- `assets/js/gallery.js`: toegankelijke fotovergroting, miniaturen en veegbediening.
+- `assets/js/contact.js`: voorwaardelijke reservatievelden, veldhulp en verzendstatus.
 - `assets/img/gallery/`: oorspronkelijke foto's; `assets/img/optimized/`: responsieve WebP-versies.
 - `assets/fonts/`: lokale lettertypes met OFL-licenties.
 
@@ -44,9 +47,15 @@ Nieuwe foto's krijgen beschrijvende alt-teksten, vaste afmetingen, responsieve W
 
 ## Interactie en toegankelijkheid
 
-De drankenzoeker is hoofdletter- en accentongevoelig. Wissen herstelt eerder geopende categorieën. De momentkaarten koffie en apero filteren de passende drankenrubriek. Een reservatieknop kiest het bijbehorende formulieronderwerp zonder ingevulde tekst te vervangen.
+De drankenzoeker is hoofdletter- en accentongevoelig. Snelle filters voor koffie/thee, bieren, apero en expliciet alcoholvrije keuzes werken samen met de zoekterm. Wissen herstelt eerder geopende categorieën en zet de filter terug. De momentkaarten koffie en apero filteren de passende drankenrubriek.
 
-De fotogalerij gebruikt een native dialoog met vorige/volgende, pijltjestoetsen en Escape. De focus keert terug naar de aangeklikte foto. Reduced-motion schakelt automatische fotografie en animaties uit; handmatige bediening blijft werken. De routeknoppen laden Google Maps pas na een klik; er staat geen externe kaartembed op de pagina.
+“Kopieer deze selectie” kopieert een link met alleen `drank` en `filter` naar het klembord. Bij ontbrekende klembordtoegang verschijnt een selecteerbaar linkveld. De ontvanger krijgt dezelfde kaartselectie te zien. Er wordt niets verzonden en geen bezoekgeschiedenis opgeslagen. De zoeker begrenst zoektermen tot 120 tekens en accepteert alleen bekende filterwaarden.
+
+Een reservatieknop kiest het bijbehorende formulieronderwerp zonder ingevulde tekst te vervangen. Bij een reservatie toont het formulier datum, tijdstip en aantal personen; extra wensen zijn optioneel. Bij een vraag of samenwerking blijft het bericht verplicht. JavaScript verbergt alleen niet-relevante velden; zonder JavaScript staat bij de extra velden duidelijk waarvoor ze nodig zijn. PHP valideert dezelfde voorwaarden, echte datums vanaf vandaag tot één jaar vooruit in Europe/Brussels, een 24-uurs tijdstip en een heel aantal personen van 1 tot 99. Dit is een invoergrens, geen toezegging over capaciteit of beschikbaarheid.
+
+De fotogalerij gebruikt een native dialoog met vorige/volgende, pijltjestoetsen, Home/End, miniaturen, veegbediening en Escape. De focus keert terug naar de aangeklikte foto. De vergrote foto gebruikt geoptimaliseerde WebP; bij fouten blijft de kleinere foto zichtbaar. Alleen de twee aangrenzende 960px-beelden worden op de achtergrond voorbereid, met respect voor databesparing.
+
+De grote sfeerfoto ondersteunt veegbediening en pijltjestoetsen via de bestaande controls. Automatische wissels pauzeren zolang de muis of toetsenbordfocus op het openingsbeeld staat. Verticale scroll en pinch-zoom blijven beschikbaar. Reduced-motion schakelt automatische fotografie en animaties uit; handmatige bediening blijft werken. De routeknoppen laden Google Maps pas na een klik; er staat geen externe kaartembed op de pagina.
 
 ## Contactmail controleren
 
@@ -58,10 +67,10 @@ Het formulier mailt naar `info@de-pasto.be`, met afzender `website@de-pasto.be` 
 - Test na upload één echt bericht en controleer inbox en spam. Een lokaal ontwikkelsysteem heeft doorgaans geen mailtransport.
 - Een tafel is pas gereserveerd nadat De Pasto de aanvraag bevestigt.
 
-Servervalidatie controleert het onderwerp, naam, e-mailadres en bericht en weigert arrayvelden en headerinjectie. Het honeypotveld helpt tegen eenvoudige bots. Een succesvolle POST wordt niet omgeleid; opnieuw laden kan daarom opnieuw versturen.
+Servervalidatie controleert onderwerp, naam, e-mailadres, bericht en eventuele reservatiegegevens en weigert arrayvelden en headerinjectie. Het formulier toont veldhulp en voorkomt tijdens het versturen extra klikken; opnieuw laden na een succesvolle POST kan nog altijd opnieuw verzenden. Het honeypotveld helpt tegen eenvoudige bots. Een succesvolle POST wordt niet omgeleid.
 
 ## Controle van deze herwerking
 
-PHP-syntax, browserweergave en interacties zijn gecontroleerd met PHP 8.3 en Chromium op breedtes van 320 tot 1440 pixels. De gerichte controle bevatte 31 geslaagde checks, inclusief ongeldige formulierinvoer en het behouden van velden bij ontbrekend mailtransport. Controleer voor publicatie ook de uren/kaart en de daadwerkelijke productie-mailaflevering. De website heeft geen nieuw reserveringssysteem of bevestiging van beschikbaarheid; het formulier verstuurt een aanvraag.
+PHP- en JavaScript-syntax, browserweergave en interacties zijn gecontroleerd met PHP 8.3 en Chromium op breedtes van 320 tot 1440 pixels. De aanvullende controles omvatten menucombinaties en deelbare links, galerijbediening, veeggebaren, voorwaardelijke formuliervelden, ongeldige invoer en het behouden van gegevens bij ontbrekend mailtransport. De drie bestaande stijlbestanden zijn ongewijzigd; het openingsbeeld is visueel vergeleken met de vorige versie. Controleer voor publicatie ook de uren/kaart en de daadwerkelijke productie-mailaflevering. Het formulier verstuurt een aanvraag; beschikbaarheid wordt persoonlijk bevestigd.
 
-Visuele previews: [desktop](docs/preview-desktop.jpg) en [mobiel](docs/preview-mobile.jpg).
+Visuele previews: [desktop](docs/preview-desktop.jpg), [mobiel](docs/preview-mobile.jpg), [kaartfilters](docs/preview-menu.jpg), [fotogalerij](docs/preview-gallery.jpg) en [reservatieaanvraag](docs/preview-reservation.jpg).

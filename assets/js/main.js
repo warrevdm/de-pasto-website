@@ -88,12 +88,13 @@
     let current = 0;
     let requested = 0;
     let paused = false;
+    let hovering = false;
     let visible = true;
     let loading = false;
     let requestToken = 0;
     let timer;
-    const canPlay = () => !paused && !reducedMotion.matches && visible &&
-      !document.hidden && !controls.contains(document.activeElement);
+    const canPlay = () => !paused && !hovering && !reducedMotion.matches && visible &&
+      !document.hidden && !hero.contains(document.activeElement);
     const updateInfo = () => {
       counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
       if (slideCaption) slideCaption.textContent = slides[current].dataset.caption || '';
@@ -126,6 +127,10 @@
         current = target;
         requested = current;
         updateInfo();
+        const announcement = controls.querySelector('[data-hero-status]');
+        if (manual && announcement) {
+          announcement.textContent = 'Foto ' + (current + 1) + ' van ' + slides.length + ': ' + (image.dataset.caption || '');
+        }
       } catch {
         if (token === requestToken) requested = current;
       } finally {
@@ -141,8 +146,40 @@
       if (sliderToggle.firstElementChild) sliderToggle.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
       schedule();
     });
-    controls.addEventListener('focusin', schedule);
-    controls.addEventListener('focusout', () => window.requestAnimationFrame(schedule));
+    hero.addEventListener('focusin', schedule);
+    hero.addEventListener('focusout', () => window.requestAnimationFrame(schedule));
+    hero.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') { hovering = true; schedule(); }
+    });
+    hero.addEventListener('pointerleave', event => {
+      if (event.pointerType === 'mouse') { hovering = false; schedule(); }
+    });
+    controls.addEventListener('keydown', event => {
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        showSlide(requested + (event.key === 'ArrowLeft' ? -1 : 1), true);
+      }
+    });
+    const media = hero.querySelector('.hero-media');
+    if (media) {
+      let gesture = null;
+      media.addEventListener('pointerdown', event => {
+        if (event.pointerType !== 'touch') return;
+        if (!event.isPrimary) { gesture = null; return; }
+        gesture = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      }, { passive: true });
+      media.addEventListener('pointercancel', () => { gesture = null; }, { passive: true });
+      media.addEventListener('pointerup', event => {
+        if (!gesture || event.pointerId !== gesture.id) return;
+        const dx = event.clientX - gesture.x;
+        const dy = event.clientY - gesture.y;
+        gesture = null;
+        if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          showSlide(requested + (dx < 0 ? 1 : -1), true);
+        }
+      }, { passive: true });
+    }
     const updateMotion = () => {
       controls.hidden = false;
       sliderToggle.hidden = reducedMotion.matches;
@@ -188,6 +225,7 @@
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         if ([...topic.options].some(option => option.value === link.dataset.contactIntent)) {
           topic.value = link.dataset.contactIntent;
+          topic.dispatchEvent(new Event('change', { bubbles: true }));
         }
       });
     });
